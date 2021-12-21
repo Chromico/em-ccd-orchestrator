@@ -6,17 +6,19 @@ services:
       context: .
 #    image: hmcts/rpa-em-ccd-orchestrator:latest
     environment:
-      - SERVER_PORT=8080
-      - IDAM_API_BASE_URI=https://idam-api.aat.platform.hmcts.net
-      - OPEN_ID_API_BASE_URI=https://idam-api.aat.platform.hmcts.net/o
-      - S2S_BASE_URI=http://service-auth-provider-api:8080
+      - SERVER_PORT=8084
+      - IDAM_API_BASE_URL=http://idam-api:5000
+      - IDAM_OIDC_URL=http://idam-api:5000
+      - OPEN_ID_API_BASE_URI=http://docker.for.mac.localhost:5000/o
+      - S2S_BASE_URI=http://docker.for.mac.localhost:4502
       - APPINSIGHTS_INSTRUMENTATIONKEY=test_app
+      - EM_STITCHING_API_URL= http://localhost:8083
     # these environment variables are used by java-logging library
       - JSON_CONSOLE_PRETTY_PRINT=false
       - ROOT_LOGGING_LEVEL
       - REFORM_SERVICE_TYPE=java
       - REFORM_SERVICE_NAME=rpa-em-ccd-orchestrator
       - REFORM_TEAM=em-ccd-orchestrator
-      - REFORM_ENVIRONMENT=docker
+      - REFORM_ENVIRONMENT=local
     ports:
-    - $SERVER_PORT:8080
+    - $SERVER_PORT:8084

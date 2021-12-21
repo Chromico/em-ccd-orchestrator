@@ -161,7 +161,7 @@ public class ExtendedCcdHelper {
 
     private String getCallbackUrl() {
         if (testUrl.contains("localhost")) {
-            return "http://rpa-em-ccd-orchestrator:8080";
+            return "http://rpa-em-ccd-orchestrator:8084";
         } else {
             return testUrl.replaceAll("https", "http");
         }
